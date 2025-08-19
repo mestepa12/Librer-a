@@ -121,16 +121,39 @@ form input:focus, form select:focus { outline: none; border-color: var(--accent-
     .header-controls { width: 100%; justify-content: space-between; }
     main { padding: 1rem; }
     .books-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    .detail-modal-content { flex-direction: column; gap: 0;   padding: 1rem;}
+
+    #book-detail-modal {
+        /* Hacemos que el modal ocupe casi toda la pantalla y no tenga padding exterior */
+        height: 90vh; /* Ocupa el 90% de la altura de la pantalla */
+        width: 95vw;  /* Ocupa el 95% del ancho de la pantalla */
+        padding: 0;
+    }
+
+    .detail-modal-content {
+        flex-direction: column;
+        gap: 0;
+        /* Hacemos que el contenido interno sea el que tenga scroll */
+        overflow-y: auto;
+        height: 100%; /* Ocupa toda la altura de su padre (el modal) */
+    }
+    
     .detail-cover-container {
         width: 100%;
-        max-height: 220px; /* MODIFICADO: Reducimos la altura máxima de la imagen */
-        flex-shrink: 0;    /* AÑADIDO: Nos aseguramos de que la imagen no se encoja */
-        border-radius: 6px; /* Opcional: Redondea las esquinas de la imagen */
-        overflow: hidden;   /* Opcional: Necesario para que el borde redondeado funcione */
+        max-height: 220px;
+        flex-shrink: 0;
+        border-radius: 0; /* Quitamos el borde redondeado para que se ajuste al borde del modal */
+        overflow: hidden;
     }
-    .detail-info { width: 100%; padding: 1.5rem; }
-    #detail-title { font-size: 1.5rem; }
+
+    .detail-info {
+        width: 100%;
+        padding: 1rem 1.5rem 2rem 1.5rem; /* Ajustamos el padding para dar espacio */
+    }
+
+    #detail-title {
+        font-size: 1.5rem;
+    }
+    
 }
 
 /* ======== VISTA DE LISTA (VERSIÓN LIMPIA) ======== */
@@ -160,5 +183,4 @@ form input:focus, form select:focus { outline: none; border-color: var(--accent-
 /* 4. Ajustamos el espaciado de la información del libro. */
 .list-view .book-info {
     padding: 0.5rem 1.5rem;
-
 }
