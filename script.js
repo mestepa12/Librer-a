@@ -7,16 +7,42 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const loadBooks = () => {
-        const booksFromStorage = localStorage.getItem('myBooks');
-        if (booksFromStorage) {
-            return JSON.parse(booksFromStorage);
-        }
-        return [
-            { id: 1, title: "Cien años de soledad", author: "Gabriel García Márquez", cover: "https://images.penguinrandomhouse.com/cover/9780593081180", section: "leyendo-ahora", currentPage: 180, totalPages: 432, notes: "Realismo mágico en su máxima expresión." },
-            { id: 2, title: "Dune", author: "Frank Herbert", cover: "https://images.penguinrandomhouse.com/cover/9780593098232", section: "leyendo-ahora", currentPage: 501, totalPages: 688, notes: "" },
-            { id: 3, title: "Elantris", author: "Brandon Sanderson", cover: "images/elantris.jpg", section: "proximas-lecturas", totalPages: 622, currentPage: 0 },
-        ];
-    };
+    const booksFromStorage = localStorage.getItem('myBooks');
+    if (booksFromStorage) { 
+        return JSON.parse(booksFromStorage);
+    }
+    // Nueva lista de libros por defecto
+    return [
+        // --- LEYENDO AHORA ---
+        { 
+            id: 1, 
+            title: "Twisted Lies", 
+            author: "Ana Huang", 
+            cover: "https://m.media-amazon.com/images/I/81FQf+D21LL._UF894,1000_QL80_.jpg", 
+            section: "leyendo-ahora", 
+            currentPage: 95, 
+            totalPages: 578, 
+            notes: "Último libro de la saga Twisted." 
+        },
+
+        // --- PRÓXIMAS LECTURAS ---
+    
+        { id: 5, title: "Keeping 13", author: "Chloe Walsh", cover: "https://m.media-amazon.com/images/I/81TESBRcN-L._UF1000,1000_QL80_.jpg", section: "proximas-lecturas", totalPages: 710, currentPage: 0 },
+        { id: 6, title: "No te enamores de Blake Anderson", author: "Victoria Vílchez", cover: "https://m.media-amazon.com/images/I/71EuVUkf1aL._UF894,1000_QL80_.jpg", section: "proximas-lecturas", totalPages: 456, currentPage: 0 },
+        { id: 7, title: "Después de diciembre", author: "Joana Marcús", cover: "https://m.media-amazon.com/images/I/71NYRVLa8tL.jpg", section: "proximas-lecturas", totalPages: 528, currentPage: 0 },
+        { id: 8, title: "Rey de la soberbia", author: "Ana Huang", cover: "https://m.media-amazon.com/images/I/81XW8zSGrBL._UF1000,1000_QL80_.jpg", section: "proximas-lecturas", totalPages: 368, currentPage: 0 },
+        { id: 12, title: "La asistenta", author: "Freida McFadden", cover: "https://m.media-amazon.com/images/I/71UilMg9WPL.jpg", section: "proximas-lecturas", totalPages: 337, currentPage: 0 },
+        { id: 13, title: "Rozando el cielo", author: "Megan Maxwell", cover: "https://m.media-amazon.com/images/I/9147vzhqWPL.jpg", section: "proximas-lecturas", totalPages: 320, currentPage: 0 },
+    
+        // --- LIBROS TERMINADOS ---
+        { id: 2, title: "Twisted Love", author: "Ana Huang", cover: "https://m.media-amazon.com/images/I/71BRxfi4KfL.jpg", section: "libros-terminados", totalPages: 358, currentPage: 358 },
+        { id: 3, title: "Twisted Games", author: "Ana Huang", cover: "https://m.media-amazon.com/images/I/71RIqveP76L._UF894,1000_QL80_.jpg", section: "libros-terminados", totalPages: 448, currentPage: 448 },
+        { id: 4, title: "Twisted Hate", author: "Ana Huang", cover: "https://m.media-amazon.com/images/I/619o9Ii2MIL._UF894,1000_QL80_.jpg", section: "libros-terminados", totalPages: 512, currentPage: 512 },
+        { id: 9, title: "Antes de diciembre", author: "Joana Marcús", cover: "https://m.media-amazon.com/images/I/71huiTGJqGL.jpg", section: "libros-terminados", totalPages: 496, currentPage: 496 },
+        { id: 10, title: "Binding 13", author: "Chloe Walsh", cover: "https://m.media-amazon.com/images/I/81cptXWZlfL.jpg", section: "libros-terminados", totalPages: 663, currentPage: 663 },
+        { id: 11, title: "Rey de la ira", author: "Ana Huang", cover: "https://m.media-amazon.com/images/I/8163OZIw67L._UF1000,1000_QL80_.jpg", section: "libros-terminados", totalPages: 400, currentPage: 400 },
+    ];
+};
 
     let booksData = loadBooks();
 
